@@ -2,10 +2,5 @@ services:
   - type: web
     name: medical-coding-api
     runtime: python
-    pythonVersion: "3.9.7"
-    buildCommand: |
-      pip install -r backend/requirements.txt
+    buildCommand: pip install -r backend/requirements.txt
     startCommand: gunicorn backend.app:app --workers 1
-    envVars:
-      - key: APP_ENV
-        value: production
