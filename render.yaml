@@ -1,6 +1,10 @@
 services:
   - type: web
     name: medical-coding-api
+    plan: free  # ← Critical addition
     runtime: python
     buildCommand: pip install -r backend/requirements.txt
     startCommand: gunicorn backend.app:app --workers 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.9.7"
